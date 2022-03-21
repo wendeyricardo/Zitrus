@@ -19,7 +19,7 @@ public class Clientes extends AbstractEntity<Long>{
 	private String cep; 
 	
 	@Column(nullable = false)
-	private String endereço;
+	private String endereco;
 	
 	@Column(nullable = false)
 	private String rua;
@@ -28,7 +28,19 @@ public class Clientes extends AbstractEntity<Long>{
 	private int numero;
 	
 	@Column(nullable = false)
-	private String estado;
+	private String estado;	
+
+	@Column(nullable = false)
+	private String cidade;
+	
+	@Column(nullable = false)
+	private String email;
+	
+	@Column(nullable = false)
+	private String senha;
+	
+	@Column(nullable = false)
+	private String usuario;
 	
 	public String getNome() {
 		return nome;
@@ -62,12 +74,12 @@ public class Clientes extends AbstractEntity<Long>{
 		this.cep = cep;
 	}
 
-	public String getEndereço() {
-		return endereço;
+	public String getEndereco() {
+		return endereco;
 	}
 
-	public void setEndereço(String endereço) {
-		this.endereço = endereço;
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
 	}
 
 	public String getRua() {
@@ -125,17 +137,5 @@ public class Clientes extends AbstractEntity<Long>{
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
-
-	@Column(nullable = false)
-	private String cidade;
-	
-	@Column(nullable = false)
-	private String email;
-	
-	@Column(nullable = false)
-	private String senha;
-	
-	@Column(nullable = false)
-	private String usuario;
 
 }
