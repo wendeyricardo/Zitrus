@@ -7,7 +7,6 @@ import br.com.zitrus.sistema.domain.Clientes;
 @Repository
 public class ClientesDaoImpl extends AbstractDAO<Clientes, Long> implements ClientesDao{
 
-	@Override
 	public void delete(Clientes clientes) {
 		// TODO Auto-generated method stub
 		

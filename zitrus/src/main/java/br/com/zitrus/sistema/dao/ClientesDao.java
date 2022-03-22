@@ -10,7 +10,7 @@ public interface ClientesDao {
 	
 	void update(Clientes clientes);
 	
-	void delete(Clientes clientes);
+	void delete(Long id);
 	
 	Clientes findById (Long id);
 	

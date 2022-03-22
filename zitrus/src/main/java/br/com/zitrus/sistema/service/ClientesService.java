@@ -10,7 +10,7 @@ public interface ClientesService {
 	
 	void editar(Clientes cliente);
 	
-	void excluir(Clientes id);
+	void excluir(Long id);
 	
 	Clientes buscarPorId(Long id);
 	

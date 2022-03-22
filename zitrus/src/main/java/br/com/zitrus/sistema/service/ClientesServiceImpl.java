@@ -31,7 +31,7 @@ public class ClientesServiceImpl implements ClientesService {
 
 	@Transactional(readOnly = false)
 	@Override
-	public void excluir(Clientes id) {
+	public void excluir(Long id) {
 		dao.delete(id);
 		
 	}
