@@ -103,15 +103,15 @@
 	                    </tr>
 	                    </thead>
 	                    <tbody>
-		                    <tr th:each="c : ${clientes}">
+		                    <tr th:each="c: ${clientes}">
 		                        <td th:text="${c.id}">2</td>
-		                        <td th:text="${c.nome}">Ana Maria Lindoval</td>
-		                        <td th:text="${c.usuario}">R$ 3.560,70</td>
-		                        <td th:text="${c.cpf}">Administração</td>
-		                        <td th:text="${c.email}">Auxiliar Administrativo</td>
-		                        <td th:text="${c.cep}">R$ 3.560,70</td>
-		                        <td th:text="${c.rua}">Administração</td>
-		                        <td th:text="${c.numero}">Auxiliar Administrativo</td>
+		                        <td th:text="${c.nome}"></td>
+		                        <td th:text="${c.usuario}"></td>
+		                        <td th:text="${c.cpf}"></td>
+		                        <td th:text="${c.email}"></td>
+		                        <td th:text="${c.cep}"></td>
+		                        <td th:text="${c.rua}"></td>
+		                        <td th:text="${c.numero}"></td>
 		                        <td>
 		                           <!-- <button type="button" class="btn btn-secondary btn-sm" data-container="body"
 		                                    data-toggle="popover" data-placement="top"
@@ -131,10 +131,10 @@
 		                       <!-- <td th:text="${#temporals.format(f.dataEntrada, 'dd/MM/yyyy')}">2017/08/14</td>
 		                        <td th:text="${#temporals.format(f.dataSaida, 'dd/MM/yyyy')}">02/03/2015</td> -->
 		                        <td colspan="2">
-		                            <a class="btn btn-info btn-sm" th:href="@{/clientes/editar/{id} (id=${f.id}) }" role="button">
+		                            <a class="btn btn-info btn-sm" th:href="@{/clientes/editar/{id} (id=${c.id}) }" role="button">
 		                                <span class="oi oi-brush" title="Editar" aria-hidden="true"></span>
 		                            </a>
-		                            <button th:id="${#strings.concat('btn_clientes/excluir/', f.id) }" type="button" class="btn btn-danger btn-sm"
+		                            <button th:id="${#strings.concat('btn_clientes/excluir/', c.id) }" type="button" class="btn btn-danger btn-sm"
 		                                    data-toggle="modal" data-target="#myModal">
 		                                <span class="oi oi-circle-x" title="Excluir" aria-hidden="true"></span>
 		                            </button>
