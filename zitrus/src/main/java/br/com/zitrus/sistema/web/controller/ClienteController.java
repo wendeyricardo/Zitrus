@@ -54,7 +54,7 @@ public class ClienteController {
 	public String excluir(@PathVariable("id") Long id, RedirectAttributes attr) {
 		service.excluir(id);
 		attr.addFlashAttribute("success", "cliente removido com sucesso");
-		return "/cliente/excluir";		
+		return "redirect:/clientes/listar";		
 	}
 	
 	
