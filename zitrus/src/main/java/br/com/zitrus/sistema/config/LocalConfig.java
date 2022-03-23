@@ -7,14 +7,13 @@ import org.springframework.context.annotation.Profile;
 
 import br.com.zitrus.sistema.domain.Clientes;
 import br.com.zitrus.sistema.service.ClientesService;
-import br.com.zitrus.sistema.service.ClientesServiceImpl;
 
 @Configuration
 @Profile("local")
 public class LocalConfig {
 	
 	@Autowired
-	ClientesServiceImpl dao;
+	ClientesService dao;
 
 	@Bean
 	public void startDB() {
@@ -28,7 +27,7 @@ public class LocalConfig {
 		c1.setEstado("SC");
 		c1.setNumero(54);
 		c1.setUsuario("zitrino");
-		c1.setSenha("“venhaserfeliz”");
+		c1.setSenha("venhaserfeliz");
 		c1.setSexo("Masculino");
 		c1.setRua("Xavantes");
 		dao.salvar(c1);

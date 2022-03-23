@@ -1,18 +1,11 @@
 package br.com.zitrus.sistema.dao;
 
-import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import br.com.zitrus.sistema.domain.Clientes;
 
-public interface ClientesDao {
 
-	void save(Clientes clientes);
-	
-	void update(Clientes clientes);
-	
-	void delete(Long id);
-	
-	Clientes findById (Long id);
-	
-	List<Clientes> findAll();
+public interface ClientesDao extends JpaRepository<Clientes, Long>{
+
 }

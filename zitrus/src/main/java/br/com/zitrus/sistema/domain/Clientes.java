@@ -1,47 +1,58 @@
 package br.com.zitrus.sistema.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "TAB_CLIENTES")
-public class Clientes extends AbstractEntity<Long>{
-	
-	@Column(nullable = false)
+public class Clientes {
+	@Id @GeneratedValue (strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	@NotNull
 	private String nome;
 		
-	@Column(nullable = false, unique = true)
+	@NotNull
 	private int cpf;
 	
 	private String sexo;
 	
-	@Column(nullable = false)
+	@NotNull
 	private String cep; 
 	
-	@Column(nullable = false)
+	@NotNull
 	private String endereco;
 	
-	@Column(nullable = false)
+	@NotNull
 	private String rua;
 	
-	@Column(nullable = false)
+	@NotNull
 	private int numero;
 	
-	@Column(nullable = false)
+	@NotNull
 	private String estado;	
 
-	@Column(nullable = false)
+	@NotNull
 	private String cidade;
 	
-	@Column(nullable = false)
+	@NotNull
 	private String email;
 	
-	@Column(nullable = false)
+	@NotNull
 	private String senha;
 	
-	@Column(nullable = false)
+	@NotNull
 	private String usuario;
-	
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public String getNome() {
 		return nome;
 	}
@@ -138,4 +149,29 @@ public class Clientes extends AbstractEntity<Long>{
 		this.usuario = usuario;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Clientes other = (Clientes) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
+	}
+	
 }

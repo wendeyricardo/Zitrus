@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.zitrus.sistema.domain.Clientes;
@@ -33,22 +34,21 @@ public class ClienteController {
 	@PostMapping("/salvar")
 	public String salvar(Clientes cliente, RedirectAttributes attr) {
 		service.salvar(cliente);
-		attr.addFlashAttribute("success", "cliente inserido com sucesso");
+		attr.addFlashAttribute("success", "cliente salvo com sucesso");
 		return "redirect:/clientes/cadastrar";
 	}
 	
-	@GetMapping("/editar/{id}")
-	public String preEditar(@PathVariable("id") Long id, ModelMap model) {
-		model.addAttribute("cliente", service.buscarPorId(id));
-		return "cliente/cadastro";
-	}
 	
-	@PostMapping("/editar")
-	public String editar(Clientes cliente, RedirectAttributes attr) {
-		service.editar(cliente);
-		attr.addFlashAttribute("success", "cliente editado com sucesso");
-		return "redirect:/clientes/cadastrar";
-	}	
+	@RequestMapping("/editar/{id}")
+    public ModelAndView editar(@PathVariable("id") Long id) {
+        Clientes c = service.buscarPorId(id);
+        System.out.println(c);
+        ModelAndView mv = new ModelAndView("cliente/cadastro");
+        mv.addObject(c);
+        return mv;
+    }
+
+	
 	
 	@GetMapping("/excluir/{id}")
 	public String excluir(@PathVariable("id") Long id, RedirectAttributes attr) {
