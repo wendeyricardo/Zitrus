@@ -7,7 +7,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 class ZitrusApplicationTests {
 
 	@Test
-	void contextLoads() {
+	void main() {
+		ZitrusApplication.main(new String[] {});
 	}
 
 }
